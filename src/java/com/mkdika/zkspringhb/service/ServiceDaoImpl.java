@@ -2,6 +2,7 @@ package com.mkdika.zkspringhb.service;
 
 
 import com.mkdika.zkspringhb.entity.Person;
+import com.mkdika.zkspringhb.entity.PersonJob;
 import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -56,4 +57,16 @@ public class ServiceDaoImpl implements ServiceDao {
         List<Person> list = getCurrentSession().createQuery("FROM Person a ORDER BY a.personname ASC").list();
         return list;
     }   
+
+    @Override
+    public PersonJob getPersonJobById(Integer id) {
+       PersonJob t = (PersonJob) getCurrentSession().get(PersonJob.class,id);
+       return t;
+    }
+
+    @Override
+    public List<PersonJob> getPersonJobs() {
+       List<PersonJob> list = getCurrentSession().createQuery("FROM PersonJob a ORDER BY a.jobname ASC").list();
+       return list;
+    }
 }

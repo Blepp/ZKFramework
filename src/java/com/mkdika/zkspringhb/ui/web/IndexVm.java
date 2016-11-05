@@ -46,7 +46,7 @@ public class IndexVm {
             try {
                 if (AppUtil.getWebService().delete(getSelected())) {
                     setSelected(null);
-                    Clients.showNotification("Delete successful.");
+                    Clients.showNotification("TES.");
                 } else {
                     Clients.showNotification("Delete failed.");
                 }
